@@ -6,146 +6,246 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
       color: #333;
+      background-color: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      overflow-x: hidden; /* ✅ Prevent horizontal scroll */
     }
-    header {
-      background-color: #343a40;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
+    
+    pre {
+      white-space: pre-wrap; /* ✅ Allow wrapping inside <pre> */
+      word-break: break-word;
     }
-    header h1 {
-      margin: 0;
+
+
+    h1 {
       font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2.5rem;
-    }
-    h2 {
-      color: #212529;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 0.5rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    img {
-      max-width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-    footer {
+      margin-bottom: 0.2rem;
+      color: #111;
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #6c757d;
-      border-top: 1px solid #dee2e6;
     }
-    a {
-      color: #007bff;
+
+    h2 {
+      margin-top: 2.5rem;
+      font-size: 2rem;
+      color: #222;
+      background: transparent;
+      padding-top: 0.3rem;
+      padding-bottom: 0.3rem;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #000;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 4px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .author {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      margin-right: 1rem;
       text-decoration: none;
+      color: #007acc;
     }
-    a:hover {
+
+    .links a:hover {
       text-decoration: underline;
     }
-    .buttons a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
+
+    img {
+      max-width: 100%;
+      margin: 1rem 0;
+      border: none;
     }
-    .buttons a:hover {
-      background-color: #0056b3;
+
+    .leaderboard img {
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-  </style>
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #777;
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+  
+
+.link-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.link-buttons a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background-color: #2b2b2b;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.link-buttons a:hover {
+  background-color: #444;
+}
+
+</style>
 </head>
 <body>
 
-<header>
-  <h1>GIE-Bench</h1>
-  <p>Grounded Image Editing Evaluation Benchmark</p>
-  <div class="buttons">
-    <a href="https://arxiv.org/abs/2505.11493" target="_blank">📄 Paper</a>
-    <a href="https://github.com/yourusername/GIE-Bench" target="_blank">💻 GitHub</a>
-    <a href="#" target="_blank">⬇️ Dataset (Coming Soon)</a>
+  <div style="text-align: center;"><img src="images/GIE_logo.png" alt="GIE-Bench Logo" style="max-width: 300px;"></div>
+  
+  <div class="author" style="text-align: center;">
+    <div style="font-size: 2rem; text-align: center;"><strong>G</strong>rounded <strong>I</strong>mage <strong>E</strong>diting Evaluation Benchmark</div>
+    <div>Yusu Qian, Jiasen Lu, Tsu-Jui Fu, Xinze Wang, Chen Chen, Yinfei Yang, Wenze Hu, Zhe Gan</div>
+    <div style="margin-top: 0.5rem;">Apple</div>
   </div>
-</header>
 
-<div class="container">
 
-  <section>
-    <h2>Overview</h2>
-    <p>
-      GIE-Bench is a benchmark for evaluating <strong>text-guided image editing</strong> models in a grounded and interpretable way.
-      It assesses both:
-    </p>
-    <ul>
-      <li><strong>Functional correctness</strong> using VQA-style multiple-choice questions</li>
-      <li><strong>Content preservation</strong> using object-aware masking and similarity metrics</li>
-    </ul>
-    <p>
-      It includes over <strong>1,000 curated editing examples</strong> across 20 image domains and 9 edit types.
-    </p>
-  </section>
+  
+  
 
-  <section>
-    <h2>Evaluation Pipeline</h2>
-    <img src="sample_pipeline.png" alt="GIE-Bench Pipeline Overview">
-    <p style="font-style: italic;">Figure: Functional correctness and content preservation modules in GIE-Bench.</p>
-  </section>
-
-  <section>
-    <h2>Key Features</h2>
-    <ul>
-      <li>Automatic, scalable evaluation with VQA-style questions</li>
-      <li>Object-aware mask-based preservation metrics</li>
-      <li>Supports 9 types of edits: object add/remove, size, background, layout, etc.</li>
-      <li>Comparison across state-of-the-art editing models including GPT-Image-1, MGIE, OmniGen</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Examples</h2>
-    <img src="example_edit.png" alt="Example Edits">
-    <p><strong>Instruction:</strong> Replace the boat on the canal with a gondola.<br>
-       <strong>Question:</strong> What type of watercraft is present on the canal?<br>
-       <strong>Answer:</strong> Gondola</p>
-  </section>
-
-  <section>
-    <h2>Get Involved</h2>
-    <p>
-      We welcome contributions and collaborations! Stay tuned for:
-    </p>
-    <ul>
-      <li>Dataset and evaluation code release</li>
-      <li>Leaderboard of editing model performance</li>
-      <li>Extension to multi-turn editing and compositional tasks</li>
-    </ul>
-  </section>
-
+<div class="link-buttons">
+  <a href="https://arxiv.org/abs/2505.11493" target="_blank">📄 Paper</a>
+  <a href="https://github.com/apple/ml-gie-bench" target="_blank">💾 Code and Dataset</a>
 </div>
 
-<footer>
-  &copy; 2025 Yusu Qian and collaborators. Hosted on GitHub Pages.
-</footer>
+
+
+
+  <h2>Overview</h2>
+  <p>
+    GIE-Bench is a benchmark designed to evaluate <strong>text-guided image editing</strong> models across two critical dimensions:
+  </p>
+  <ul>
+    <li><strong>Functional correctness</strong> — assessed via VQA-style multiple-choice questions</li>
+    <li><strong>Content preservation</strong> — evaluated through object-aware masking and image similarity</li>
+  </ul>
+  <p>
+    It includes over 1,000 high-quality editing examples across 20 categories and 9 edit types, with masks, instructions, and questions.
+  </p>
+
+  <h2>Abstract</h2>
+  <p>
+    Editing images using natural language instructions has become a natural and expressive way to modify visual content; yet, evaluating the performance of such models remains challenging. Existing evaluation approaches often rely on image-text similarity metrics like CLIP, which lack precision.
+    In this work, we introduce a new benchmark designed to evaluate text-guided image editing models in a more grounded manner, along two critical dimensions:
+    (i) functional correctness, assessed via automatically generated multiple-choice questions that verify whether the intended change was successfully applied; and
+    (ii) image content preservation, which ensures that non-targeted regions of the image remain visually consistent using an object-aware masking technique and preservation scoring.
+    The benchmark includes over 1000 high-quality editing examples across 20 diverse content categories, each annotated with detailed editing instructions, evaluation questions, and spatial object masks.
+    We conduct a large-scale study comparing GPT-Image-1, the latest flagship in the text-guided image editing space, against several state-of-the-art editing models, and validate our automatic metrics against human ratings.
+    Results show that GPT-Image-1 leads in instruction-following accuracy, but often over-modifies irrelevant image regions, highlighting a key trade-off in the current model behavior.
+    GIE-Bench provides a scalable, reproducible framework for advancing more accurate evaluation of text-guided image editing.
+  </p>
+
+  <h2>Evaluation Pipeline</h2>
+  <img src="images/teaser.pdf" alt="GIE-Bench pipeline overview">
+  <p>
+    The benchmark automatically verifies whether the desired edit was applied (via VQA) and whether unintended changes occurred (via masked similarity).
+  </p>
+
+  <h2>Examples</h2>
+  <img src="images/plot5.pdf" alt="GIE-Bench visual examples">
+
+  <h2>Benchmark Details</h2>
+  <ul>
+    <li>856 unique images, 1,080 edit examples</li>
+    <li>9 edit types: color, add/remove object, scene/background, size, layout, text, etc.</li>
+    <li>VQA-style questions generated with GPT-4o for evaluation</li>
+    <li>Object-aware masking using GroundingDINO + SAM</li>
+  </ul>
+
+  <h2>Leaderboard</h2>
+
+  <div class="leaderboard">
+    <h3>Functional Correctness</h3>
+    <img src="images/leaderboard_functional.png" alt="Leaderboard - Functional Correctness" />
+    <p>
+      Functional correctness is evaluated via VQA-style multiple-choice questions for each edit. GPT-Image-1 achieves the highest overall accuracy (85.00%) across 9 edit types. OmniGen and MagicBrush also perform well, but with more variance across categories.
+    </p>
+
+    <h3>Content Preservation</h3>
+    <img src="images/leaderboard_preservation.png" alt="Leaderboard - Content Preservation" />
+    <p>
+      Preservation is measured using metrics like masked SSIM, CLIP, PSNR, and MSE over non-edited regions. OneDiffusion and MagicBrush consistently achieve top scores in preserving unedited content, while GPT-Image-1 tends to over-edit, especially at the pixel level.
+    </p>
+  </div>
+
+  
+  
+  <h2>Failure Modes</h2>
+  <img src="images/plot6.pdf" alt="Examples of GPT-Image-1’s failure modes">
+  
+  <h2>BibTeX</h2>
+  <div style="position: relative; max-width: 1000px; margin: 0 auto;">
+    <button onclick="copyBibtex()" style="
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: gray;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.6rem;
+      cursor: pointer;
+
+    ">📋 Copy</button>
+    <pre id="bibtex" style="
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.55rem;
+    ">@misc{qian2025giebench,
+  title={{GIE-Bench: Towards Grounded Evaluation for Text-Guided Image Editing}},
+  author={Yusu Qian and Jiasen Lu and Tsu-Jui Fu and Xinze Wang and Chen Chen and Yinfei Yang and Wenze Hu and Zhe Gan},
+  year={2025},
+  eprint={2505.11493},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}</pre>
+  </div>
+
+  <script>
+    function copyBibtex() {
+      const bib = document.getElementById("bibtex").innerText;
+      navigator.clipboard.writeText(bib).then(() => {
+        alert("BibTeX copied to clipboard!");
+      });
+    }
+  </script>
+
+
+
+  <footer>
+      This project is distributed under the <a href="https://github.com/YOUR_USERNAME/GIE-Bench/blob/main/LICENSE" target="_blank">LICENSE</a>. 
+      All data is released under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC-by-NC-ND</a>.
+    <p><em>Happy editing and benchmarking! For any inquiries, please contact yqian22@apple.com </em> 🎨</p>
+    &copy; 2025 Apple AIML
+  </footer>
 
 </body>
 </html>
